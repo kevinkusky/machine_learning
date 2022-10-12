@@ -60,19 +60,39 @@ print("a[:3]    = ", c) # [0 1 2]
 c = a[:];    
 print("a[:]     = ", c) # [0 1 2 3 4 5 6 7 8 9]
 
+
+# Vector Operations
 a = np.array([1,2,3,4])
-print(f"a             : {a}")
+print(f"a             : {a}") # [1 2 3 4]
 
 # negate elements of a
 b = -a 
-print(f"b = -a        : {b}")
+print(f"b = -a        : {b}") # [-1 -2 -3 -4]
 
 # sum all elements of a, returns a scalar
 b = np.sum(a) 
-print(f"b = np.sum(a) : {b}")
+print(f"b = np.sum(a) : {b}") # 10
 
 b = np.mean(a)
-print(f"b = np.mean(a): {b}")
+print(f"b = np.mean(a): {b}") # 2.5
 
 b = a**2
-print(f"b = a**2      : {b}")
+print(f"b = a**2      : {b}") # [1  4  9 16]
+
+a = np.array([ 1, 2, 3, 4])
+b = np.array([-1,-2, 3, 4])
+print(f"Binary operators work element wise: {a + b}") # [0 0 6 8]
+
+#try a mismatched vector operation
+c = np.array([1, 2])
+try:
+    d = a + c
+except Exception as e:
+    print("The error message you'll see is:")
+    print(e) # operands could not be broadcast together with shapes (4,) (2,)
+
+a = np.array([1, 2, 3, 4])
+
+# multiply a by a scalar
+b = 5 * a 
+print(f"b = 5 * a : {b}") # [5 10 15 20]
