@@ -96,3 +96,54 @@ a = np.array([1, 2, 3, 4])
 # multiply a by a scalar
 b = 5 * a 
 print(f"b = 5 * a : {b}") # [5 10 15 20]
+
+
+# Matrices
+
+a = np.zeros((1, 5))     
+print(f"a shape = {a.shape}, a = {a}")  # [ [0. 0. 0. 0. 0.] ]
+
+a = np.zeros((2, 1))                         
+print(f"a shape = {a.shape}, a = {a}") # [ [0.] [0.] ]
+
+a = np.random.random_sample((1, 1))  
+print(f"a shape = {a.shape}, a = {a}")  # [ [0.44236513] ]
+
+# NumPy routines which allocate memory and fill with user specified values
+a = np.array([[5], [4], [3]])
+# a = np.array([[5],   # One can also
+#               [4],   # separate values
+#               [3]]); #into separate rows
+print(f" a shape = {a.shape}, np.array: a = {a}") # [ [5] [4] [3] ]
+
+# vector indexing operations on matrices
+r = np.arange(6)   
+print(r) # [0 1 2 3 4 5]
+a = r.reshape(-1,2) # reshape is a convenient way to create matrices
+print(f"a.shape: {a.shape}") # (3, 2) - 3 x 2 matrix
+print(f"a= {a}") # [ [0 1] [2 3] [4 5] ]
+
+# access an element
+print(f"\na[2,0].shape:   {a[2, 0].shape}, a[2,0] = {a[2, 0]},     type(a[2,0]) = {type(a[2, 0])} Accessing an element returns a scalar\n")
+
+# access a row
+print(f"a[2].shape:   {a[2].shape}, a[2]   = {a[2]}, type(a[2])   = {type(a[2])}")
+
+
+#vector 2-D slicing operations
+a = np.arange(20).reshape(-1, 10)
+print(f"a = \n{a}")
+
+#access 5 consecutive elements (start:stop:step)
+print("a[0, 2:7:1] = ", a[0, 2:7:1], ",  a[0, 2:7:1].shape =", a[0, 2:7:1].shape, "a 1-D array")
+
+#access 5 consecutive elements (start:stop:step) in two rows
+print("a[:, 2:7:1] = \n", a[:, 2:7:1], ",  a[:, 2:7:1].shape =", a[:, 2:7:1].shape, "a 2-D array")
+
+# access all elements
+print("a[:,:] = \n", a[:,:], ",  a[:,:].shape =", a[:,:].shape)
+
+# access all elements in one row (very common usage)
+print("a[1,:] = ", a[1,:], ",  a[1,:].shape =", a[1,:].shape, "a 1-D array")
+# same as
+print("a[1]   = ", a[1],   ",  a[1].shape   =", a[1].shape, "a 1-D array")
